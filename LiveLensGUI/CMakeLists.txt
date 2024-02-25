@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.21.1)
 option(LINK_INSIGHT "Link Qt Insight Tracker library" ON)
 option(BUILD_QDS_COMPONENTS "Build design studio components" ON)
 
-project(QTDemoPrototypeApp LANGUAGES CXX)
+project(LiveLensGUIApp LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 
@@ -13,15 +13,15 @@ if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
     qt_standard_project_setup()
 endif()
 
-qt_add_executable(QTDemoPrototypeApp src/main.cpp)
+qt_add_executable(LiveLensGUIApp src/main.cpp)
 
-qt_add_resources(QTDemoPrototypeApp "configuration"
+qt_add_resources(LiveLensGUIApp "configuration"
     PREFIX "/"
     FILES
         qtquickcontrols2.conf
 )
 
-target_link_libraries(QTDemoPrototypeApp PRIVATE
+target_link_libraries(LiveLensGUIApp PRIVATE
     Qt6::Core
     Qt6::Gui
     Qt6::Qml
@@ -45,7 +45,7 @@ if (LINK_INSIGHT)
 endif ()
 
 include(GNUInstallDirs)
-install(TARGETS QTDemoPrototypeApp
+install(TARGETS LiveLensGUIApp
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
